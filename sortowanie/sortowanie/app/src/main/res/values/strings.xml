@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">sortowanie</string>
+    <string name="aplikacja_do_sortowania">aplikacja do sortowania</string>
+    <string name="wprowadz_liczby_do_posortowania">wprowadz liczby do posortowania</string>
+    <string-array name="sort_methods">
+        <item>Sortowanie bąbelkowe</item>
+        <item>Sortowanie przez wstawianie</item>
+    </string-array>
+</resources>
