@@ -7,7 +7,7 @@
 
  * sortowanie liczb wybraną metodą używając:
   1. Aktywności https://github.com/patrycjaprzybysz/AndroidStudio/tree/master/sortowanie_twoActivities
-  2. Fragmentów
+  2. Fragmentów https://github.com/patrycjaprzybysz/AndroidStudio/tree/master/sortowanie_fragments
 #### Laboratorium 3
 
  * projekt 
