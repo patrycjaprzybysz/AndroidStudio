@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="0dp">
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="177dp"
+        android:layout_height="53dp"
+        android:src="@drawable/logo_gdynia"
+        android:layout_marginTop="20dp"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/nav_bar_background"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="AKTUALNOŚCI"
+            android:textColor="@color/nav_bar_text_color" />
+
+        <TextView
+            android:id="@+id/textViewTourism"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="TURYSTYKA"
+            android:textColor="@color/nav_bar_text_color"
+            android:gravity="center"
+            android:clickable="true" />
+
+        <TextView
+            android:id="@+id/textViewHistory"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="HISTORIA"
+            android:textColor="@color/nav_bar_text_color"
+            android:gravity="center"
+            android:clickable="true" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Najważniejsze w Gdyni"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
