@@ -52,11 +52,41 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="HISTORIA"
-                android:textColor="@color/underline_color"
+                android:textColor="@color/nav_bar_text_color"
                 android:gravity="center"
                 android:clickable="true" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tytuł artykułu"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:padding="16dp"/>
+
+        <ImageView
+            android:id="@+id/imageViewArticle"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/artykul1"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="tekst"
+            android:textSize="15sp"
+            android:textColor="@android:color/black"
+            android:padding="16dp"/>
+
+
+
+
 
     </LinearLayout>
 
