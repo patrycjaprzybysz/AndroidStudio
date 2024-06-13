@@ -33,7 +33,7 @@ class HistoryActivity : AppCompatActivity() {
 
         val articles = dbHelper.getAllArticles()
         val article = articles.firstOrNull() // Pobierz pierwszy artykuł jako przykład
-
+//        val article = articles.getOrNull(1)
         val container = findViewById<LinearLayout>(R.id.container)
 
         article?.let {

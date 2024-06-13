@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -51,12 +52,22 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     fun insertArticle(article: Article): Long {
+        if (articleExists(article.title, article.date)) {
+            Log.d("DatabaseHelper", "Article already exists: ${article.title}")
+            return -1 // Return -1 if article already exists
+        }
+
         val db = writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_TITLE, article.title)
             put(COLUMN_DATE, article.date)
         }
         val articleId = db.insert(TABLE_ARTICLES, null, values)
+
+        if (articleId == -1L) {
+            Log.e("DatabaseHelper", "Failed to insert article: ${article.title}")
+            return -1
+        }
 
         article.elements.forEach { element ->
             val elementValues = ContentValues().apply {
@@ -70,10 +81,23 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                     is ArticleElement.Image -> element.imagePath
                 })
             }
-            db.insert(TABLE_ELEMENTS, null, elementValues)
+            val elementId = db.insert(TABLE_ELEMENTS, null, elementValues)
+            if (elementId == -1L) {
+                Log.e("DatabaseHelper", "Failed to insert element for article ID: $articleId")
+            }
         }
-
+        Log.d("DatabaseHelper", "Inserted article with ID: $articleId")
         return articleId
+    }
+
+    private fun articleExists(title: String, date: String): Boolean {
+        val db = readableDatabase
+        val selection = "$COLUMN_TITLE = ? AND $COLUMN_DATE = ?"
+        val selectionArgs = arrayOf(title, date)
+        val cursor = db.query(TABLE_ARTICLES, arrayOf(COLUMN_ID), selection, selectionArgs, null, null, null)
+        val exists = cursor.count > 0
+        cursor.close()
+        return exists
     }
 
     fun getAllArticles(): List<Article> {
@@ -96,7 +120,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return articles
     }
 
-    fun getArticleById(articleId: Long): Article? {
+    fun getArticle(articleId: Long): Article? {
         val db = readableDatabase
         var article: Article? = null
 
@@ -114,7 +138,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         return article
     }
-
 
 
 
@@ -139,5 +162,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         cursor.close()
 
         return elements
+    }
+
+    fun clearDatabase() {
+        val db = writableDatabase
+        db.delete(TABLE_ELEMENTS, null, null)
+        db.delete(TABLE_ARTICLES, null, null)
     }
 }
