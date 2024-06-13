@@ -12,6 +12,6 @@
 
  * projekt https://github.com/patrycjaprzybysz/AndroidStudio/tree/master/projekt
 
-Aplikacja informacyjna dotycząca miasta Gdynia. Zawiera artykuły pobierane z bazy danych dotącze miasta, histroię miasta oraz warte odwiedzenia punkty turystyczne.
+Aplikacja informacyjna dotycząca miasta Gdynia. Zawiera artykuły pobierane z bazy danych dotącze miasta, histroię miasta oraz mapę z wartymi odwiedzenia punktami turystycznymi.
 Użyte technologie: Activity, View Binding, Fragments, Database SQLite
   
