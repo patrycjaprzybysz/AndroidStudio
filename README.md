@@ -10,5 +10,8 @@
   2. Fragmentów https://github.com/patrycjaprzybysz/AndroidStudio/tree/master/sortowanie_fragments
 #### Laboratorium 3
 
- * projekt 
+ * projekt https://github.com/patrycjaprzybysz/AndroidStudio/tree/master/projekt
+
+Aplikacja informacyjna dotycząca miasta Gdynia. Zawiera artykuły pobierane z bazy danych dotącze miasta, histroię miasta oraz warte odwiedzenia punkty turystyczne.
+Użyte technologie: Activity, View Binding, Fragments, Database SQLite
   
