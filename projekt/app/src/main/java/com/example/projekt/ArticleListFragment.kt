@@ -41,7 +41,7 @@ class ArticleListFragment : Fragment() {
             fragment.arguments = bundle
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, fragment)
+                .replace(R.id.fragmentContainer, fragment)
                 .addToBackStack(null)
                 .commit()
         }

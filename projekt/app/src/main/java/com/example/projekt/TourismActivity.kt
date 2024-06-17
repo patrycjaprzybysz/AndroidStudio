@@ -6,26 +6,27 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.projekt.databinding.ActivityHistoryBinding
+import com.example.projekt.databinding.ActivityTourismBinding
 
 
 class TourismActivity : AppCompatActivity() {
 
-
+    private lateinit var binding: ActivityTourismBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tourism)
+        binding = ActivityTourismBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
-        val textViewHistory: TextView = findViewById(R.id.textViewHistory)
-        textViewHistory.setOnClickListener {
-            val intent = Intent(this, HistoryActivity::class.java)
+        binding.textViewMain.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        val textViewMain: TextView = findViewById(R.id.textViewMain)
-        textViewMain.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+        binding.textViewHistory.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
 

@@ -8,25 +8,26 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Gravity
 import android.graphics.Typeface
+import com.example.projekt.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: DatabaseHelper
+    private lateinit var binding: ActivityHistoryBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_history)
+        binding = ActivityHistoryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         dbHelper = DatabaseHelper(this)
 
-        val textViewMain: TextView = findViewById(R.id.textViewMain)
-        textViewMain.setOnClickListener {
+        binding.textViewMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        val textViewTourism: TextView = findViewById(R.id.textViewTourism)
-        textViewTourism.setOnClickListener {
+        binding.textViewTourism.setOnClickListener {
             val intent = Intent(this, TourismActivity::class.java)
             startActivity(intent)
         }

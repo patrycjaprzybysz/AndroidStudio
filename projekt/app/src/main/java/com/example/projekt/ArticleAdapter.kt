@@ -35,5 +35,7 @@ class ArticleAdapter(
             titleTextView.text = article.title
             imageView.setImageResource(article.imageResourceId)
         }
+
+
     }
 }

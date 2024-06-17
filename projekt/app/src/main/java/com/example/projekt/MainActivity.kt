@@ -9,46 +9,51 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projekt.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var dbHelper: DatabaseHelper
     private lateinit var recyclerView: RecyclerView
+    private lateinit var binding: ActivityMainBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         dbHelper = DatabaseHelper(this)
         dbHelper.clearDatabase()
         insertSampleData()
 
-        val textViewMain: TextView = findViewById(R.id.textViewMain)
-        textViewMain.setOnClickListener {
+        binding.textViewMain.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        val textViewHistory: TextView = findViewById(R.id.textViewHistory)
-        textViewHistory.setOnClickListener {
+        binding.textViewHistory.setOnClickListener {
             val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
 
-        val textViewTourism: TextView = findViewById(R.id.textViewTourism)
-        textViewTourism.setOnClickListener {
+        binding.textViewTourism.setOnClickListener {
             val intent = Intent(this, TourismActivity::class.java)
             startActivity(intent)
         }
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ArticleListFragment())
+                .replace(R.id.fragmentContainer, ArticleListFragment())
                 .commit()
         }
 
-
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, ArticleListFragment())
+                .commit()
+        }
     }
+
 
     private fun insertSampleData() {
             val articles = listOf(
